@@ -2,7 +2,7 @@
 <?php include('layouts/header.php'); ?>
 <?php 
     
-    $categories_sidesbars = (new category())->getNavCategories();
+    $categories_sidesbars = (new category())->getParentCategories();
 
     $all_category_sidesbar = [];
 
@@ -16,6 +16,8 @@
             }
             array_push($all_category_sidesbar, $category);
     }
+
+
 ?>
 
     <div class="body-content outer-top-vs" id="top-banner-and-menu">
@@ -49,7 +51,7 @@
                                         </li>
                                     <?php } ?>
                                 <?php } else { ?>
-                                    <li class="menu-item"> <a href="javascript:void(0);"><?php echo $item['name']; ?></a> 
+                                    <li class="menu-item"> <a href='category.php?id=<?php echo $item['id']; ?>'><?php echo $item['name']; ?></a> 
                                 <?php } ?>
                             <?php } ?>
                             </ul>
@@ -3103,26 +3105,6 @@
                     <!-- ============================================== SPECIAL DEALS : END ============================================== -->
                 </div>
             </div>
-
-            <!-- ============================================== NEWSLETTER ============================================== -->
-            <div class="newsletter wow fadeInUp">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <h3>Sign up to <strong>Newsletter</strong></h3>
-                        <div class="sidebar-widget-body">
-                            <p>Get <strong>40% Off</strong> on selected items!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">
-                            <button class="btn btn-primary">Subscribe</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!-- /.sidebar-widget-body -->
         </div>
         <!-- /.sidebar-widget -->
         <!-- ============================================== NEWSLETTER: END ============================================== -->

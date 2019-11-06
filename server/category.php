@@ -21,6 +21,11 @@ class category extends pdocrudhandler
 
 		return $this->select('category', ['*']);
 	}
+
+	public function getParentCategories ($parent_id = 0) {
+		
+		return $this->select('category', ['*'], 'where parent_id = ?', [$parent_id]);	
+	}
 }
 
 

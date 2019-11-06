@@ -57,7 +57,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                         <div class="logo">
-                            <a href="home.html"> <img src="assets/images/logo.png" alt="logo"> </a>
+                            <a href="index.php"> <img src="assets/images/logo.png" alt="logo"> </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
