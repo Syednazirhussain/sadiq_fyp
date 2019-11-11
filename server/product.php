@@ -11,6 +11,13 @@ class product extends pdocrudhandler
 
 		return $this->select('products', ['*']);
 	}
+
+	public function getProductById ($params = []) {
+
+		$product_id = $params['product_id'];
+		return $this->select('products', ['*'], 'where id = ?', [$product_id]);
+	}
+
 }
 
 

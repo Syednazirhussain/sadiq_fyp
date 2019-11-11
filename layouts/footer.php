@@ -184,6 +184,114 @@
 
 </body>
 
-<!-- Mirrored from themesground.com/boxshop/demo/V1/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 01 Nov 2019 17:36:05 GMT -->
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        
+        updateCartView();
+        
+        $('.addToCart').click(function () {
 
+            let product_id = $(this).data('product-id');
+
+            let jsObj = {};
+            jsObj['class']  = 'product';
+            jsObj['method'] = 'getProductById';
+            jsObj['params'] = {
+                'product_id': product_id
+            };
+
+            $.ajax({
+                url: 'ajax.php',
+                method: 'POST',
+                data: jsObj,
+                ContentType: 'application/json'
+            }).done(function (response) {
+
+                let jsResp = JSON.parse(response)
+
+                if (jsResp.status == 'success') {
+
+                    if (localStorage.hasOwnProperty('products')) {
+
+                        var stored = JSON.parse(localStorage.getItem("products"));
+                        var selectedProduct = jsResp.result[0];
+                        if (stored.length > 0) {
+
+                            var hasItem = false
+                            var itemIndex = 0;
+
+                            $.each(stored, function (index, item) {
+
+                                if (item.hasOwnProperty('id') && item.id == selectedProduct.id) {
+                                    hasItem = true
+                                    itemIndex = index
+                                }
+                            })
+
+                            if (hasItem == true) {
+
+                                let storedItem = stored[itemIndex]
+                                storedItem.qty += 1
+                                console.log(storedItem)
+                            } else {
+                                selectedProduct['qty'] = 1;
+                                stored.push(selectedProduct);
+                                localStorage.setItem("products", JSON.stringify(stored));  
+                            }
+                        }
+
+                        var result = JSON.parse(localStorage.getItem("products"));
+                        console.log(result);
+                    } else {
+
+                        var myCart = [];
+                        var selectedProduct = jsResp.result[0];
+                        selectedProduct['qty'] = 1;
+                        myCart.push(selectedProduct);
+                        localStorage.setItem("products", JSON.stringify(myCart));
+                    }
+
+                    updateCartView();
+                }
+            }).error(function (error) {
+                alert(error)
+            })
+        });
+
+        function updateCartView () {
+
+            let html = '';
+            var count = total = 0;
+
+            if (localStorage.hasOwnProperty('products')) {
+
+                var stored = JSON.parse(localStorage.getItem("products"));
+                count = stored.length
+                $.each(stored, function (index, item) {
+
+                    total += parseInt(item.price)
+                })
+
+            }
+
+            html += '<div class="dropdown dropdown-cart">'
+            html += '<a href="javascript:void(0);" class="dropdown-toggle lnk-cart" data-toggle="dropdown">'
+            html += '<div class="items-cart-inner">'
+            html += '<div class="basket"></div>'
+            html += '<div class="basket-item-count"><span class="count">'+ count +'</span></div>'
+            html += '<div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign">$</span>'
+            html += '<span class="value">'+ total +'</span> </span>'
+            html += '</div>'
+            html += '</div>'
+            html += '</a>'
+            html += '</div>'
+            
+            $('#myCartStatus').html(html);
+        }
+
+    });
+
+
+</script>
 </html>

@@ -1,7 +1,7 @@
 <?php 
     
     $pdo = new pdocrudhandler();
-    $categories = (new category())->getNavCategories(6, [6, 12, 13, 14 , 15 ,16]);
+    $categories = (new category())->getNavCategories(6, [6, 12, 16]);
 
     $all_category = [];
 

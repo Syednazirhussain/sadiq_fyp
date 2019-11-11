@@ -105,8 +105,8 @@
 	                                    <div class="action">
 	                                        <ul class="list-unstyled">
 	                                            <li class="add-cart-button btn-group">
-	                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-	                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+	                                                <button class="btn btn-primary icon addToCart" data-product-id="<?php echo $value->id; ?>" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+	                                                <button class="btn btn-primary cart-btn" data-product-id="<?php echo $value->id; ?>" type="button">Add to cart</button>
 	                                            </li>
 	                                            <li class="lnk wishlist">
 	                                                <a class="add-to-cart" href="javascript:void(0);" title="Wishlist"> <i class="icon fa fa-heart"></i> </a>
@@ -116,15 +116,15 @@
 	                                            </li>
 	                                        </ul>
 	                                    </div>
-	                                    <!-- /.action -->
 	                                </div>
-	                                <!-- /.cart -->
 	                            </div>
 	                        </div>
 	                    </div>
 	                    <?php } ?>
 	                </div>
 	            </section>
+
+	            <!-- Featured products -->
 	            <section class="section featured-product wow fadeInUp">
 	                <h3 class="section-title">Featured products</h3>
 	                <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
@@ -462,6 +462,7 @@
 	                </div>
 	                <!-- /.home-owl-carousel -->
 	            </section>
+	        	<!-- Featured products ends -->
 	        </div>
     	<?php } else { ?>
     		<div class="container">
@@ -473,4 +474,8 @@
     		</div>
     	<?php } ?>
     </div>
+
+
+
 <?php include('layouts/footer.php'); ?>
+

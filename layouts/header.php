@@ -30,6 +30,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <style type="text/css">
+        .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .total-price-basket:after {
+            content: "" !important;
+        }
+    </style>
+
 </head>
 
 <body class="cnt-home">
@@ -81,42 +88,8 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
-                        <div class="dropdown dropdown-cart">
-                            <a href="javascript:void(0);" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
-                                <div class="items-cart-inner">
-                                    <div class="basket"></div>
-                                    <div class="basket-item-count"><span class="count">2</span></div>
-                                    <div class="total-price-basket"> <span class="lbl"></span> <span class="total-price"> <span class="sign">$</span><span class="value">600.00</span> </span>
-                                    </div>
-                                </div>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="cart-item product-summary">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                                <div class="image">
-                                                    <a href="detail.html"><img src="assets/images/cart.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-7">
-                                                <h3 class="name"><a href="index8a95.html?page-detail">Simple Product</a></h3>
-                                                <div class="price">$600.00</div>
-                                            </div>
-                                            <div class="col-xs-1 action"> <a href="javascript:void(0);"><i class="fa fa-trash"></i></a> </div>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <hr>
-                                    <div class="clearfix cart-total">
-                                        <div class="pull-right"> <span class="text">Sub Total :</span><span class='price'>$600.00</span> </div>
-                                        <div class="clearfix"></div>
-                                        <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a> 
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row" id="myCartStatus">
+
                     </div>
                 </div>
             </div>
